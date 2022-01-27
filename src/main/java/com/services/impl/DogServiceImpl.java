@@ -59,6 +59,7 @@ public class DogServiceImpl implements DogService {
         dogDto.setId(dog.getId());
         dogDto.setName(dog.getName());
         dogDto.setRace(dog.getRace());
+        dogDto.setBirthDate(dog.getBirthDate());
         return dogDto;
     }
 
@@ -66,10 +67,12 @@ public class DogServiceImpl implements DogService {
      * Map dog entity to dog dto
      */
     private Dog dogDtoToEntity(DogDto dogDto){
+        //Ici ta un mappeur; il transforme le DogDto en Dog et tu vois qu'il n'y a pas le setDate :p
         Dog dog = new Dog();
         dog.setName(dogDto.getName());
         dog.setId(dogDto.getId());
         dog.setRace(dogDto.getRace());
+        dog.setBirthDate(dogDto.getBirthDate());
         return dog;
     }
 }

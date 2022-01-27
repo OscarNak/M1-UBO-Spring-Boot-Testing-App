@@ -1,10 +1,7 @@
 package com.controllers;
-
 import com.dtos.DogDto;
 import org.springframework.web.bind.annotation.*;
-
 import com.services.impl.DogServiceImpl;
-
 import java.util.List;
 
 @RestController
@@ -39,6 +36,9 @@ public class DogController {
 	 */
 	@PostMapping
 	public DogDto saveDog(final @RequestBody DogDto dogDto){
+		//ICI Tu print le dog dto
+		//Dog dto a un ToString car @Data je crois
+		System.out.println(dogDto);
 		return dogService.saveDog(dogDto);
 	}
 
