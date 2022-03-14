@@ -26,15 +26,15 @@ public class UtilisateurServiceImpl {
 
     private UtilisateurDto utilisateurEntityToDto(Utilisateur utilisateur) {
 
-        UtilisateurDto UtilisateurDto = new UtilisateurDto();
-        UtilisateurDto.setId(utilisateur.getId());
-        UtilisateurDto.setLogin(utilisateur.getLogin());
-        UtilisateurDto.setMotDePasse(utilisateur.getMotDePasse());
-        UtilisateurDto.setNomUsuel(utilisateur.getNomUsuel());
-        UtilisateurDto.setPrenom(utilisateur.getPrenom());
-        UtilisateurDto.setMail(utilisateur.getMail());
-        UtilisateurDto.setCours(utilisateur.getCours());
-        return UtilisateurDto;
+        UtilisateurDto utilisateurDto = new UtilisateurDto();
+        utilisateurDto.setId(utilisateur.getId());
+        utilisateurDto.setLogin(utilisateur.getLogin());
+        utilisateurDto.setMotDePasse(utilisateur.getMotDePasse());
+        utilisateurDto.setNomUsuel(utilisateur.getNomUsuel());
+        utilisateurDto.setPrenom(utilisateur.getPrenom());
+        utilisateurDto.setMail(utilisateur.getMail());
+        utilisateurDto.setCours(utilisateur.getCours());
+        return utilisateurDto;
     }
 
     private Utilisateur utilisateurDtoToEntity(UtilisateurDto UtilisateurDto) {
