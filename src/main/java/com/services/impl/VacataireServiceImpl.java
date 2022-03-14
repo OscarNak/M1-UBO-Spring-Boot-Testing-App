@@ -1,5 +1,4 @@
 package com.services.impl;
-
 import com.dtos.VacataireDto;
 import com.entities.Vacataire;
 import com.repositories.VacataireRepository;
@@ -17,6 +16,9 @@ public class VacataireServiceImpl {
     }
 
     public VacataireDto saveVacataire(VacataireDto vacataireDto) {
+
+        //TODO : si l'objet possède un cours, il faut aussi insérer dans la base de données l'objet cours dans la table cours
+
         Vacataire vacataire = vacataireDtoToEntity(vacataireDto);
         vacataire = vacRepository.save(vacataire);
         return vacataireEntityToDto(vacataire);
