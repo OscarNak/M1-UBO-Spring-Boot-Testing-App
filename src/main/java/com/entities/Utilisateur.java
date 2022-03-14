@@ -6,8 +6,6 @@ import javax.persistence.*;
 
 @Entity
 @Data
-@Inheritance(strategy= InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="utilisateur_type")
 public class Utilisateur {
 
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,5 +15,11 @@ public class Utilisateur {
 	private String nomUsuel;
 	private String prenom;
 	private String mail;
+
+	@ManyToOne
+	private Cours cours;
+
+	@ManyToOne
+	private typeUtilisateur type;
 
 }

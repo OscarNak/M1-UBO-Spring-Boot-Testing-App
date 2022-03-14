@@ -1,5 +1,4 @@
 package com.services.impl;
-
 import com.dtos.UtilisateurDto;
 import com.entities.Utilisateur;
 import com.repositories.UtilisateurRepository;
@@ -8,67 +7,64 @@ import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @Service("utilisateurService")
-public class UtilisateurServiceImpl{
+public class UtilisateurServiceImpl {
+    private final UtilisateurRepository utilisateurRepository;
 
-	private final UtilisateurRepository userRepository;
-
-    public UtilisateurServiceImpl(UtilisateurRepository utilisateurRepository){
-        this.userRepository = utilisateurRepository;
+    public UtilisateurServiceImpl(UtilisateurRepository utilisateurRepository) {
+        this.utilisateurRepository = utilisateurRepository;
     }
 
 
     public UtilisateurDto saveUtilisateur(UtilisateurDto utilisateurDto) {
 
-        Utilisateur user = utilisateurDtoToEntity(utilisateurDto);
-
-        user = userRepository.save(user);
-
-        return utilisateurEntityToDto(user);
+        Utilisateur utilisateur = utilisateurDtoToEntity(utilisateurDto);
+        utilisateur = utilisateurRepository.save(utilisateur);
+        return utilisateurEntityToDto(utilisateur);
     }
 
 
+    private UtilisateurDto utilisateurEntityToDto(Utilisateur utilisateur) {
 
-    private UtilisateurDto utilisateurEntityToDto(Utilisateur user) {
-        UtilisateurDto userDto= new UtilisateurDto();
-        userDto.setId(user.getId());
-        userDto.setLogin(user.getLogin());
-        userDto.setMotDePasse(user.getMotDePasse());
-        userDto.setNomUsuel(user.getNomUsuel());
-        userDto.setPrenom(user.getPrenom());
-        userDto.setMail(user.getMail());
-
-        return userDto;
+        UtilisateurDto UtilisateurDto = new UtilisateurDto();
+        UtilisateurDto.setId(utilisateur.getId());
+        UtilisateurDto.setLogin(utilisateur.getLogin());
+        UtilisateurDto.setMotDePasse(utilisateur.getMotDePasse());
+        UtilisateurDto.setNomUsuel(utilisateur.getNomUsuel());
+        UtilisateurDto.setPrenom(utilisateur.getPrenom());
+        UtilisateurDto.setMail(utilisateur.getMail());
+        UtilisateurDto.setCours(utilisateur.getCours());
+        return UtilisateurDto;
     }
 
-    private Utilisateur utilisateurDtoToEntity(UtilisateurDto userDto) {
-        Utilisateur user = new Utilisateur();
-        user.setId(userDto.getId());
-        user.setLogin(userDto.getLogin());
-        user.setMotDePasse(userDto.getMotDePasse());
-        user.setNomUsuel(userDto.getNomUsuel());
-        user.setPrenom(userDto.getPrenom());
-        user.setMail(userDto.getMail());
-        return user;
+    private Utilisateur utilisateurDtoToEntity(UtilisateurDto UtilisateurDto) {
+        Utilisateur utilisateur = new Utilisateur();
+        utilisateur.setId(UtilisateurDto.getId());
+        utilisateur.setLogin(UtilisateurDto.getLogin());
+        utilisateur.setMotDePasse(UtilisateurDto.getMotDePasse());
+        utilisateur.setNomUsuel(UtilisateurDto.getNomUsuel());
+        utilisateur.setPrenom(UtilisateurDto.getPrenom());
+        utilisateur.setMail(UtilisateurDto.getMail());
+        utilisateur.setCours(UtilisateurDto.getCours());
+        return utilisateur;
     }
 
-    public List<UtilisateurDto> getUtilisateurs() {
-        List<UtilisateurDto> userDtos = new ArrayList<>();
-        List<Utilisateur> users = userRepository.findAll();
-        users.forEach(user -> {
-            userDtos.add(utilisateurEntityToDto(user));
+    public List<UtilisateurDto> getUtilisateur() {
+        List<UtilisateurDto> UtilisateurDtos = new ArrayList<>();
+        List<Utilisateur> utilisateurs = utilisateurRepository.findAll();
+        utilisateurs.forEach(user -> {
+            UtilisateurDtos.add(utilisateurEntityToDto(user));
         });
-        return userDtos;
+        return UtilisateurDtos;
     }
 
-    public UtilisateurDto getUserById(Long id) {
-        Utilisateur user = userRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("user not found"));
-        return utilisateurEntityToDto(user);
+    public UtilisateurDto getUtilisateurById(Long id) {
+        Utilisateur utilisateur = utilisateurRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("utilisateur not found"));
+        return utilisateurEntityToDto(utilisateur);
     }
 
-    public Boolean deleteUser(Long id) {
-        userRepository.deleteById(id);
+    public Boolean deleteUtilisateur(Long id) {
+        utilisateurRepository.deleteById(id);
         return true;
     }
 }
