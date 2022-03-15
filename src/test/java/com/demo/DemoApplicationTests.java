@@ -1,5 +1,7 @@
 package com.demo;
 
+import com.dtos.CoursDto;
+import com.services.impl.CoursServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -7,7 +9,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 class DemoApplicationTests {
 
 	@Test
-	void contextLoads() {
-	}
+	void getCoursByID() {
+		//Setup
 
+		//Test
+
+		//Asserts
+
+	}
 }

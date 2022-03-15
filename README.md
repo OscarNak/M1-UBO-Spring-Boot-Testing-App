@@ -13,6 +13,14 @@ pour les tables type_utilisateur, utilisateur et cours.
 
 Le projet utilise des DTOs (Data Transfert Object) pour faciliter la communication de données entre plusieurs systèmes. Les couches de Service possèdent des méthodes de convertions entre objet de classe et DTOs.
 
+# Collection POSTMAN de l'API
+
+la collection complete de l'api est disponible au format json ici : https://www.getpostman.com/collections/ba71e8ad8a91e1cc384d
+
+# Utilisation d'un SWAGGER
+
+Le projet est accompagné d'un swagger en version 1.6.6, accesible via http://localhost:8080/swagger-ui/index.html après exécution.
+
 # Model de la base de données utilisée
 
-![Untitled](src/main/resources/Untitled.png)
+![model](src/main/resources/Untitled.png)
